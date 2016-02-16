@@ -10,6 +10,7 @@ var classes
  			this.X = 0
  			this.Y = 0
  			this.angle = 0
+ 			this.angMomentum = 0
  		}
 
  		whoAmI() {
@@ -23,6 +24,14 @@ var classes
 
     setAngle(angle) {
     	this.angle = angle
+    }
+
+    setAngularMomentum(momentum) {
+    	this.angMomentum = momentum
+    }
+
+    applyAngularMomentum() {
+    	this.angle += this.angMomentum
     }
  	}
 

@@ -19,6 +19,7 @@ new p5(p => {
 
 	let mine0 = new Mine(p,'mine0')
 	mine0.setLocation(p.windowWidth * .25, p.windowHeight * .5)
+	mine0.setAngularMomentum(-1)
 	objects.push(mine0)
 
 	p.setup = () => {
@@ -29,6 +30,7 @@ new p5(p => {
 	p.draw = () => {
 		p.background(0)
 		for (let i=0;i<objects.length;i++) {
+			objects[i].applyAngularMomentum()
 			p.push()
 			p.translate(objects[i].X, objects[i].Y)
 			p.rotate(objects[i].angle)
