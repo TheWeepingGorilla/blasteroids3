@@ -2,7 +2,8 @@ new p5(p => {
 	"use strict"
 
 	//class imports
-	const Example = classes.Example
+	let Example = classes.Example
+	let example0 = new Example(p,'Robot')
 
 	p.setup = () => {
 		p.createCanvas(p.windowWidth, p.windowHeight)
@@ -10,6 +11,7 @@ new p5(p => {
 
 	p.draw = () => {
 		p.background(0)
+		example0.whoAmI()
 	}
 
 	p.windowResized = () => {
