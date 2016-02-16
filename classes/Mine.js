@@ -16,9 +16,6 @@ var classes
 			this.p.triangle(0,-5,15,0,0,5)
 			this.p.triangle(0,-5,-15,0,0,5)
 		}
-
-		drawThrust() {
-		}
  	}
 
  	c.Mine = Mine

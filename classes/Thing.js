@@ -33,6 +33,9 @@ var classes
     applyAngularMomentum() {
     	this.angle += this.angMomentum
     }
+
+    draw(){}
+
  	}
 
  	c.Thing = Thing

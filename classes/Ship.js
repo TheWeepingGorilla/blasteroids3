@@ -21,6 +21,24 @@ var classes
 			this.p.line(-8, 4, -24, 0)
 			this.p.line(-24, 0, -8, -4)
 		}
+
+		drawClockwiseThrust() {
+			this.p.strokeWeight(2)
+			this.p.stroke(240)
+			this.p.line(24,0,20,-8)
+			this.p.line(20,-8,16,0)
+			this.p.line(-16,12,-12,18)
+			this.p.line(-12,18,-8,12)
+		}
+
+		drawCounterClockwiseThrust() {
+			this.p.strokeWeight(2)
+			this.p.stroke(240)
+			this.p.line(24,0,20,8)
+			this.p.line(20,8,16,0)
+			this.p.line(-16,-12,-12,-18)
+			this.p.line(-12,-18,-8,-12)
+		}
  	}
 
  	c.Ship = Ship
