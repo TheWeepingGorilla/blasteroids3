@@ -1,20 +1,25 @@
 new p5(p => {
 	"use strict"
 
-	//class imports
-	let Ship = classes.Ship
-
-	//sketch objects
-	let playerShip = new Ship(p,'Player Ship')
-
 	//sketch variables
 	const FPS = 60
 	p.angleMode(p.DEGREES)
 
+	//class imports
+	let Ship = classes.Ship
+	let Mine = classes.Mine
+
+	//sketch objects
 	let objects = []
-	objects.push(playerShip)
-	playerShip.setLocation(p.windowWidth/2, p.windowHeight/2)
+
+	let playerShip = new Ship(p,'Player Ship')
+	playerShip.setLocation(p.windowWidth * .5, p.windowHeight * .5)
 	playerShip.setAngle(0)  // p5 rotates clockwise, e.g. angle 45 is quadrant IV, not I
+	objects.push(playerShip)
+
+	let mine0 = new Mine(p,'mine0')
+	mine0.setLocation(p.windowWidth * .25, p.windowHeight * .5)
+	objects.push(mine0)
 
 	p.setup = () => {
 		p.createCanvas(p.windowWidth, p.windowHeight)
