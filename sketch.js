@@ -30,12 +30,9 @@ new p5(p => {
 	p.draw = () => {
 		p.background(0)
 		for (let i=0;i<objects.length;i++) {
+			objects[i].control()
 			objects[i].applyAngularMomentum()
-			p.push()
-			p.translate(objects[i].X, objects[i].Y)
-			p.rotate(objects[i].angle)
 			objects[i].draw()
-			p.pop()
 		}
 	}
 

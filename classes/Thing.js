@@ -30,12 +30,16 @@ var classes
     	this.angMomentum = momentum
     }
 
+    modifyAngularMomentum(amount) {
+    	this.angMomentum += amount
+    }
+
     applyAngularMomentum() {
     	this.angle += this.angMomentum
     }
 
     draw(){}
-
+    control(){}
  	}
 
  	c.Thing = Thing
