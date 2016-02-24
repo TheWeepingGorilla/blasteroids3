@@ -11,6 +11,7 @@ var classes
  			this.Y = 0
  			this.angle = 0
  			this.angMomentum = 0
+ 			this.vector = this.p.createVector(0,0)
  		}
 
  		whoAmI() {
@@ -36,6 +37,19 @@ var classes
 
     applyAngularMomentum() {
     	this.angle += this.angMomentum
+    }
+
+    setVector(x,y) {
+    	this.vector = this.p.createVector(x,y)
+    }
+
+    addVector(modVector) {
+    	this.vector.add(modVector)
+    }
+
+    applyVector() {
+    	this.X += this.vector.x
+    	this.Y += this.vector.y
     }
 
     draw(){}

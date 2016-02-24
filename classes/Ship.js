@@ -18,6 +18,11 @@ var classes
  			if (this.p.keyIsDown(this.thrust)) {
  				this.drawThrust()
  				// apply thrust
+ 				let modVectorX = this.p.cos(this.angle)
+ 				let modVectorY = this.p.sin(this.angle)
+ 				let modVector = this.p.createVector(modVectorX, modVectorY)
+ 				modVector.mult(.2)
+ 				this.addVector(modVector)
  			}
  			if (this.p.keyIsDown(this.rotateCCW)) {
  				this.drawCounterClockwiseThrust()

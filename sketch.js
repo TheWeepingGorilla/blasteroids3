@@ -32,6 +32,7 @@ new p5(p => {
 		for (let i=0;i<objects.length;i++) {
 			objects[i].control()
 			objects[i].applyAngularMomentum()
+			objects[i].applyVector()
 			objects[i].draw()
 		}
 	}
