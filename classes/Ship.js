@@ -21,11 +21,11 @@ var classes
  			}
  			if (this.p.keyIsDown(this.rotateCCW)) {
  				this.drawCounterClockwiseThrust()
- 				// modify angular momentum
+ 				this.angMomentum += .25
  			}
  			if (this.p.keyIsDown(this.rotateCW)) {
  				this.drawClockwiseThrust()
- 				// apply angular momentum
+ 				this.angMomentum -= .25
  			}
  		}
 
