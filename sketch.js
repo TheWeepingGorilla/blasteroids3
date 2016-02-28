@@ -29,9 +29,11 @@ new p5(p => {
 
 	p.draw = () => {
 		p.background(0)
+		let mainVector = playerShip.getShipVector()
 		for (let i=0;i<objects.length;i++) {
 			objects[i].control()
 			objects[i].applyAngularMomentum()
+			objects[i].setVector(mainVector)
 			objects[i].applyVector()
 			objects[i].draw()
 		}

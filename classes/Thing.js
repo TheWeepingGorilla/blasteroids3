@@ -39,8 +39,8 @@ var classes
     	this.angle += this.angMomentum
     }
 
-    setVector(x,y) {
-    	this.vector = this.p.createVector(x,y)
+    setVector(vector) {
+    	this.vector = vector
     }
 
     addVector(modVector) {

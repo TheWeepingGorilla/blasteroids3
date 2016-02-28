@@ -17,9 +17,9 @@ var classes
  		control() {
  			if (this.p.keyIsDown(this.thrust)) {
  				this.drawThrust()
- 				// apply thrust
- 				let modVectorX = this.p.cos(this.angle)
- 				let modVectorY = this.p.sin(this.angle)
+ 				// apply thrust - angles are opposite for application to other objects
+ 				let modVectorX = this.p.cos(this.angle - 180)
+ 				let modVectorY = this.p.sin(this.angle - 180)
  				let modVector = this.p.createVector(modVectorX, modVectorY)
  				modVector.mult(.2)
  				this.addVector(modVector)
@@ -34,9 +34,17 @@ var classes
  			}
  		}
 
+ 		getShipVector() {
+ 			return this.vector
+ 		}
+
+ 		// override Vector Set for player ship so draw loop won't alter ship's motion
+ 		setVector() {}
+
     draw() {
 			this.p.push()
-			this.p.translate(this.X, this.Y)
+			// ship always in center of screen
+			this.p.translate(this.p.windowWidth / 2, this.p.windowHeight /2)
 			this.p.rotate(this.angle)
 			this.p.strokeWeight(4)
 			this.p.stroke(240)
@@ -49,7 +57,7 @@ var classes
 
 		drawThrust() {
 			this.p.push()
-			this.p.translate(this.X, this.Y)
+			this.p.translate(this.p.windowWidth / 2, this.p.windowHeight /2)
 			this.p.rotate(this.angle)
 			this.p.strokeWeight(2)
 			this.p.stroke(240)
@@ -60,7 +68,7 @@ var classes
 
 		drawClockwiseThrust() {
 			this.p.push()
-			this.p.translate(this.X, this.Y)
+			this.p.translate(this.p.windowWidth / 2, this.p.windowHeight /2)
 			this.p.rotate(this.angle)
 			this.p.strokeWeight(2)
 			this.p.stroke(240)
@@ -73,7 +81,7 @@ var classes
 
 		drawCounterClockwiseThrust() {
 			this.p.push()
-			this.p.translate(this.X, this.Y)
+			this.p.translate(this.p.windowWidth / 2, this.p.windowHeight /2)
 			this.p.rotate(this.angle)
 			this.p.strokeWeight(2)
 			this.p.stroke(240)
