@@ -10,8 +10,12 @@ var classes
     	super(sketch, name)
     	// ascii values of keys (capitals, p5.js will detect lowercase also)
     	this.thrust = 69  	// E
-    	this.rotateCCW = 83	// S
-    	this.rotateCW = 70	// F
+    	this.rotateCCW = 70	// F
+    	this.rotateCW = 83	// S
+    	this.stopRotateCCW = 71 // G
+    	this.stopRotateCW = 65 // A
+    	this.stopRotatingCCW = false
+    	this.stopRotatingCW = false
     }
 
  		control() {
@@ -31,6 +35,34 @@ var classes
  			if (this.p.keyIsDown(this.rotateCW)) {
  				this.drawClockwiseThrust()
  				this.angMomentum -= .25
+ 			}
+ 			if (this.p.keyIsDown(this.stopRotateCCW) && this.angMomentum > 0) {
+ 				console.log("Stop Rotate CCW")
+ 				this.stopRotatingCCW = true
+ 			}
+ 			if (this.p.keyIsDown(this.stopRotateCW) && this.angMomentum < 0) {
+ 				console.log("Stop Rotate CW")
+ 				this.stopRotatingCW = true
+ 			}
+ 			if (this.stopRotatingCCW) {
+ 				if (this.angMomentum > .25) {
+ 					this.drawClockwiseThrust()
+ 					this.angMomentum -= .25
+ 				} else {
+ 					this.drawClockwiseThrust()
+ 					this.angMomentum = 0
+ 					this.stopRotatingCCW = false
+ 				}
+ 			}
+ 			if (this.stopRotatingCW) {
+ 				if (this.angMomentum < -.25) {
+ 					this.drawCounterClockwiseThrust()
+ 					this.angMomentum += .25
+ 				} else {
+ 					this.drawCounterClockwiseThrust()
+ 					this.angMomentum = 0
+ 					this.stopRotatingCW = false
+ 				}
  			}
  		}
 
