@@ -37,11 +37,9 @@ var classes
  				this.angMomentum -= .25
  			}
  			if (this.p.keyIsDown(this.stopRotateCCW) && this.angMomentum > 0) {
- 				console.log("Stop Rotate CCW")
  				this.stopRotatingCCW = true
  			}
  			if (this.p.keyIsDown(this.stopRotateCW) && this.angMomentum < 0) {
- 				console.log("Stop Rotate CW")
  				this.stopRotatingCW = true
  			}
  			if (this.stopRotatingCCW) {

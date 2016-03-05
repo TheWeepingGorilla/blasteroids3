@@ -8,23 +8,35 @@ new p5(p => {
 	//class imports
 	let Ship = classes.Ship
 	let Mine = classes.Mine
+	let Map = classes.Map
 
-	//sketch objects
+	// array for all objects
 	let objects = []
 
+	// add player ship
 	let playerShip = new Ship(p,'Player Ship')
 	playerShip.setLocation(p.windowWidth * .5, p.windowHeight * .5)
 	playerShip.setAngle(0)  // p5 rotates clockwise, e.g. angle 45 is quadrant IV, not I
 	objects.push(playerShip)
 
-	let mine0 = new Mine(p,'mine0')
-	mine0.setLocation(p.windowWidth * .25, p.windowHeight * .5)
-	mine0.setAngularMomentum(-1)
-	objects.push(mine0)
+	// get map
+	let map = new Map(p, map0)
+
+	// get things from map by type and add to objects
+	let mines = []
+	for (let i=0; i<map.mines.length; i++) {
+		mines[i] = new Mine(p,map.mines[i].name)
+		mines[i].setAngularMomentum(-1)
+		objects.push(mines[i])
+	}
 
 	p.setup = () => {
 		p.createCanvas(p.windowWidth, p.windowHeight)
 		p.frameRate(FPS)
+		// set thing locations by type here so off-screen things will be rendered when needed
+		for (let i=0; i<mines.length; i++) {
+			mines[i].setLocation(map.mines[i].startX, map.mines[i].startY)
+		}
 	}
 
 	p.draw = () => {
