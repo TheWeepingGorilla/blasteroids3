@@ -8,7 +8,6 @@ new p5(p => {
 	//class imports
 	let Ship = classes.Ship
 	let Mine = classes.Mine
-	let Map = classes.Map
 
 	// array for all objects
 	let objects = []
@@ -20,12 +19,12 @@ new p5(p => {
 	objects.push(playerShip)
 
 	// get map
-	let map = new Map(p, map0)
+	let map = map0
 
 	// get things from map by type and add to objects
 	let mines = []
 	for (let i=0; i<map.mines.length; i++) {
-		mines[i] = new Mine(p,map.mines[i].name)
+		mines[i] = new Mine(p, map.mines[i].name)
 		mines[i].setAngularMomentum(-1)
 		objects.push(mines[i])
 	}
