@@ -8,9 +8,13 @@ new p5(p => {
 	//class imports
 	let Ship = classes.Ship
 	let Mine = classes.Mine
+	let Starfield = classes.Starfield
+	let HUD = classes.HUD
 
 	// array for all objects
 	let objects = []
+	// create background Starfield
+	let starfieldBG = new Starfield(p)
 
 	// add player ship
 	let playerShip = new Ship(p,'Player Ship')
@@ -32,7 +36,7 @@ new p5(p => {
 	p.setup = () => {
 		p.createCanvas(p.windowWidth, p.windowHeight)
 		p.frameRate(FPS)
-		// set thing locations by type here so off-screen things will be rendered when needed
+		// set thing locations by type here so off screen-starting things will be rendered when needed
 		for (let i=0; i<mines.length; i++) {
 			mines[i].setLocation(map.mines[i].startX, map.mines[i].startY)
 		}
@@ -40,6 +44,7 @@ new p5(p => {
 
 	p.draw = () => {
 		p.background(0)
+		starfieldBG.draw()
 		let mainVector = playerShip.getShipVector()
 		for (let i=0;i<objects.length;i++) {
 			objects[i].control()
