@@ -15,6 +15,8 @@ new p5(p => {
 	let objects = []
 	// create background Starfield
 	let starfieldBG = new Starfield(p)
+	// create HUD
+	let hud = new HUD(p)
 
 	// add player ship
 	let playerShip = new Ship(p,'Player Ship')
@@ -53,6 +55,7 @@ new p5(p => {
 			objects[i].applyVector()
 			objects[i].draw()
 		}
+		hud.control(objects)
 	}
 
 	p.windowResized = () => {

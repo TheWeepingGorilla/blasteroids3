@@ -17,11 +17,14 @@ var classes
  			}
  		}
  		draw() {
+ 			this.p.push()
+ 			this.p.stroke('red')
  			for (let i=0;i<this.numOfStars;i++) {
  				this.p.ellipse(this.p.map(this.starArray[i].x, 0, 100, 0, this.p.windowWidth),
  											 this.p.map(this.starArray[i].y, 0, 100, 0, this.p.windowHeight),
  											 this.starArray[i].width, this.starArray[i].height)
  			}
+ 			this.p.pop()
  		}
  	}
 

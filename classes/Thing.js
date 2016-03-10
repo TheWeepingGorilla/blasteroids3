@@ -12,10 +12,23 @@ var classes
  			this.angle = 0
  			this.angMomentum = 0
  			this.vector = this.p.createVector(0,0)
+ 			this.HUDColor = 'rgb(185,46,18)'
  		}
 
  		whoAmI() {
 			console.log("I am " + this.name)
+    }
+
+    getX() {
+    	return this.X
+    }
+
+    getY() {
+    	return this.Y
+    }
+
+    getHUDColor() {
+    	return this.HUDColor
     }
 
     setLocation(x,y) {

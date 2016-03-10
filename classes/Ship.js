@@ -16,6 +16,7 @@ var classes
     	this.stopRotateCW = 65 // A
     	this.stopRotatingCCW = false
     	this.stopRotatingCW = false
+    	this.HUDColor = 'rgb(22,148,206)'
     }
 
  		control() {
