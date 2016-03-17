@@ -13,6 +13,7 @@ var classes
  			this.angMomentum = 0
  			this.vector = this.p.createVector(0,0)
  			this.HUDColor = 'rgb(185,46,18)'
+ 			this.collision = {}
  		}
 
  		whoAmI() {
