@@ -10,6 +10,7 @@ new p5(p => {
 	let Mine = classes.Mine
 	let Starfield = classes.Starfield
 	let HUD = classes.HUD
+	let Collision = classes.Collision
 
 	// array for all objects
 	let objects = []
@@ -34,6 +35,8 @@ new p5(p => {
 		mines[i].setAngularMomentum(-1)
 		objects.push(mines[i])
 	}
+	// now that all objects have been added, instantiate collision and pass objects to it
+	let collision = new Collision(p,objects)
 
 	p.setup = () => {
 		p.createCanvas(p.windowWidth, p.windowHeight)
@@ -47,6 +50,7 @@ new p5(p => {
 	p.draw = () => {
 		p.background(0)
 		starfieldBG.draw()
+		collision.check()
 		let mainVector = playerShip.getShipVector()
 		for (let i=0;i<objects.length;i++) {
 			objects[i].control()

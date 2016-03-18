@@ -6,6 +6,10 @@ var classes
  	const Thing = c.Thing // import
 
  	class Mine extends Thing {
+    constructor (sketch, name) {
+    	super(sketch, name)
+    }
+
     draw() {
 			this.p.push()
 			this.p.translate(this.X, this.Y)
