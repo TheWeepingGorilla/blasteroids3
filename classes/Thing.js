@@ -15,7 +15,7 @@ var classes
  			this.HUDColor = 'rgb(185,46,18)'
  			this.collision = {
  				type: 'Circle',
- 				diameter : 10
+ 				diameter : 15
  			}
  		}
 

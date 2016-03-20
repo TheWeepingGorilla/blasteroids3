@@ -3,8 +3,8 @@ let map0 = {
 	"mines": [
 		{
 			"name": "mine0",
-			"startX": 100,
-			"startY": 300
+			"startX": 650,
+			"startY": 450
 		},
 		{
 			"name": "mine1",
